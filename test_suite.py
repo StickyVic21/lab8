@@ -64,7 +64,9 @@ while True:
 
     # Read and print sound sensor values for about 5 seconds with intervals of 100ms
     start_time = time.time()
+    print("reached sound testing")
     while time.time() - start_time < 5:
         read_sound_sensor()
         time.sleep(0.1)
+    print("end of sound testing")
 
