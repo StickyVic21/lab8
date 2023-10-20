@@ -31,7 +31,7 @@ def read_sound_sensor():
     raw_value = mcp.read_adc(1)  # Read from channel 1 (sound sensor)
     # threshold_sound = 500
     print(f"Sound: {raw_value}")
-    if raw_value > 500:
+    if raw_value > 700:
         # Turn on the LED for 100ms
         GPIO.output(11, GPIO.HIGH)
         time.sleep(0.1)
