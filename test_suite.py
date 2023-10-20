@@ -20,6 +20,7 @@ mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 
 def read_light_sensor():
+    threshold_light = 600
     raw_value = mcp.read_adc(0)  # Read from channel 0 (light sensor)
     if raw_value > threshold_light:
         print(f"Light: {raw_value} (bright)")
@@ -28,6 +29,7 @@ def read_light_sensor():
 
 def read_sound_sensor():
     raw_value = mcp.read_adc(1)  # Read from channel 1 (sound sensor)
+    threshold_sound = 500
     print(f"Sound: {raw_value}")
     if raw_value > threshold_sound:
         # Turn on the LED for 100ms
