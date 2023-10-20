@@ -18,6 +18,7 @@ mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 # get reading from adc 
 # mcp.read_adc(adc_channel)
 
+light_on = False
 
 def read_light_sensor():
     # threshold_light = 600
@@ -32,11 +33,14 @@ def read_sound_sensor():
     # threshold_sound = 500
     # print(f"Sound: {raw_value}")
     if raw_value > 700:
+        light_on = True
         print(f"Threshold achieved: {raw_value}")
         # Turn on the LED for 100ms
         GPIO.output(11, GPIO.HIGH)
         time.sleep(0.1)
         GPIO.output(11, GPIO.LOW)
+    else:
+        light_on = False
 
 while True:
     # time.sleep(0.5) 
@@ -67,6 +71,7 @@ while True:
     print("reached sound testing")
     while time.time() - start_time < 5:
         read_sound_sensor()
-        time.sleep(0.1)
+        if light_on == False:
+            time.sleep(0.1)
     print("end of sound testing")
 
