@@ -34,7 +34,7 @@ def read_sound_sensor():
     # print(f"Sound: {raw_value}")
     if raw_value > 600:
         light_on = True
-        # print(f"Threshold achieved: {raw_value}")
+        print(f"Threshold achieved: {raw_value}")
         # Turn on the LED for 100ms
         GPIO.output(11, GPIO.HIGH)
         time.sleep(0.1)
