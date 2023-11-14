@@ -23,10 +23,10 @@ light_on = False
 def read_light_sensor():
     # threshold_light = 600
     raw_value = mcp.read_adc(0)  # Read from channel 0 (light sensor)
-    # if raw_value > 600:
-        # print(f"Light: {raw_value} (bright)")
-    # else:
-        # print(f"Light: {raw_value} (dark)")
+    if raw_value > 600:
+        print(f"Light: {raw_value} (bright)")
+    else:
+        print(f"Light: {raw_value} (dark)")
 
 def read_sound_sensor():
     raw_value = mcp.read_adc(1)  # Read from channel 1 (sound sensor)
@@ -68,10 +68,10 @@ while True:
 
     # Read and print sound sensor values for about 5 seconds with intervals of 100ms
     start_time = time.time()
-    print("reached sound testing")
+    # print("reached sound testing")
     while time.time() - start_time < 5:
         read_sound_sensor()
         if light_on == False:
             time.sleep(0.1)
-    print("end of sound testing")
+    # print("end of sound testing")
 
