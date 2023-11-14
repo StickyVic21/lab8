@@ -24,9 +24,9 @@ def read_light_sensor():
     # threshold_light = 600
     raw_value = mcp.read_adc(0)  # Read from channel 0 (light sensor)
     if raw_value > 600:
-        print(f"Light: {raw_value} (bright)")
+        # print(f"Light: {raw_value} (bright)")
     else:
-        print(f"Light: {raw_value} (dark)")
+        # print(f"Light: {raw_value} (dark)")
 
 def read_sound_sensor():
     raw_value = mcp.read_adc(1)  # Read from channel 1 (sound sensor)
@@ -34,7 +34,7 @@ def read_sound_sensor():
     # print(f"Sound: {raw_value}")
     if raw_value > 700:
         light_on = True
-        print(f"Threshold achieved: {raw_value}")
+        # print(f"Threshold achieved: {raw_value}")
         # Turn on the LED for 100ms
         GPIO.output(11, GPIO.HIGH)
         time.sleep(0.1)
